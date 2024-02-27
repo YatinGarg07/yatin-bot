@@ -55,12 +55,13 @@ if prompt := st.chat_input("What is up?"):
             }),
             timeout=10
             )
-        
         audioJson = audioResponse.json()
 
         print(audioJson)
         if type(audioJson) != type(None):
-            st.session_state["audio_url"] = audioJson["body"]['url'];
+            if type(audioJson['body']) != type(None):
+                if type(audioJson['body']['url']) != type(None):
+                    st.session_state["audio_url"] = audioJson["body"]['url'];
 
         # Function to load and display audio
         
