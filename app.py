@@ -58,11 +58,11 @@ if prompt := st.chat_input("What is up?"):
         print(audioJson)
 
         # Function to load and display audio
-        def display_audio():
-            print("Audio Calling Displayed")
-            st.audio( audioJson["body"]['url'], format="audio/mp3" )
+        
+        print("Audio Calling Displayed")
+        st.audio( audioJson["body"]['url'], format="audio/mp3" )
     
-        display_audio()
+        #display_audio()
 
         
         #print(response)
