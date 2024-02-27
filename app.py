@@ -9,6 +9,9 @@ st.title("Yatin's  Bot")
 # Set OpenAI API key from Streamlit secrets
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
+if "audio_url" not in st.session_state:
+    st.session_state["audio_url"] = ""
+
 # Set a default model
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
@@ -56,11 +59,13 @@ if prompt := st.chat_input("What is up?"):
         audioJson = audioResponse.json()
 
         print(audioJson)
+        if type(audioJson) != type(None):
+            st.session_state["audio_url"] = audioJson["body"]['url'];
 
         # Function to load and display audio
         
         print("Audio Calling Displayed")
-        st.audio( audioJson["body"]['url'], format="audio/mp3" )
+        st.audio( st.session_state["audio_url"] , format="audio/mp3" )
     
         #display_audio()
 
