@@ -49,7 +49,8 @@ if prompt := st.chat_input("What is up?"):
             data = json.dumps({
                 'text': ''.join(response),
                 'voice': random.choice(thisList)
-            })
+            }),
+            timeout=10
             )
         
         audioJson = audioResponse.json()
