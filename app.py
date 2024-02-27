@@ -45,7 +45,7 @@ if prompt := st.chat_input("What is up?"):
         response = st.write_stream(stream)
         thisList = ["Justin","Joanna","Kevin","Gregory","Matthew"]
         audioResponse = requests.post(
-            'https://vzi6cpxakb.execute-api.ap-south-1.amazonaws.com/dev/speak',
+            st.secrets["LAMBDA_API_URL"],
             data = json.dumps({
                 'text': ''.join(response),
                 'voice': random.choice(thisList)
