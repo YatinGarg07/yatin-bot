@@ -4,6 +4,10 @@ import requests
 import json
 import random
 
+st.set_page_config(
+        page_title="Yatin's bot"                  
+        )
+
 st.title("Yatin's  Bot")
 
 # Set OpenAI API key from Streamlit secrets
@@ -64,9 +68,11 @@ if prompt := st.chat_input("What is up?"):
                     st.session_state["audio_url"] = audioJson["body"]['url'];
 
         # Function to load and display audio
-        
-        print("Audio Calling Displayed")
-        st.audio( st.session_state["audio_url"] , format="audio/mp3" )
+        try:
+            print("Audio Calling Displayed")
+            st.audio( st.session_state["audio_url"] , format="audio/mp3" )
+        except:
+            print("Exception occurred")    
     
         #display_audio()
 
