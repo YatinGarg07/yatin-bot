@@ -12,8 +12,6 @@ Built on Serverless architecture, using Aws Lambda, This application uses the po
 
 You can find the architecture diagram for this project in the `architecture` directory.
 
-## Getting Started
-
 ## Usage
 
 1. **Frontend Interaction:**
