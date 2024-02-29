@@ -1,0 +1,21 @@
+service: polly-chat
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: default
+  region: ap-south-1
+  role: arn:aws:iam::339712795459:role/polly-chat-role
+
+package:
+  include:
+    - node_modules/**  
+
+functions:
+  speak:
+    handler: handler.speak
+    events:
+      - http:
+          path: speak
+          method: post
+          cors: true  

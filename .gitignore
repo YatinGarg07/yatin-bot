@@ -1,1 +1,6 @@
 .streamlit/
+polly-chat-backend/node_modules
+polly-chat-backend/jspm_packages
+
+# Serverless directories
+polly-chat-backend/.serverless
